@@ -1,1 +1,73 @@
+const audioFile = document.getElementById("audioFile");
+const fileInfo = document.getElementById("fileInfo");
+const fileName = document.getElementById("fileName");
+const fileSize = document.getElementById("fileSize");
+const removeFile = document.getElementById("removeFile");
+const analyzeButton = document.getElementById("analyzeButton");
+const result = document.getElementById("result");
 
+let selectedFile = null;
+
+audioFile.addEventListener("change", function () {
+
+    if (!this.files.length) {
+        return;
+    }
+
+    selectedFile = this.files[0];
+
+    fileName.textContent = selectedFile.name;
+
+    const sizeMB =
+        (selectedFile.size / 1024 / 1024).toFixed(2);
+
+    fileSize.textContent =
+        `${sizeMB} MB • ${selectedFile.type || "Audio file"}`;
+
+    fileInfo.classList.remove("hidden");
+
+    analyzeButton.disabled = false;
+});
+
+
+removeFile.addEventListener("click", function () {
+
+    selectedFile = null;
+
+    audioFile.value = "";
+
+    fileInfo.classList.add("hidden");
+
+    analyzeButton.disabled = true;
+
+    result.classList.add("hidden");
+});
+
+
+analyzeButton.addEventListener("click", async function () {
+
+    if (!selectedFile) {
+        return;
+    }
+
+    analyzeButton.disabled = true;
+
+    analyzeButton.textContent =
+        "🤖 Analyzing...";
+
+    /*
+        AI processing will be connected here later.
+
+        For now we simulate the conversion.
+    */
+
+    await new Promise(resolve => {
+        setTimeout(resolve, 2000);
+    });
+
+    result.classList.remove("hidden");
+
+    analyzeButton.textContent =
+        "✓ Analysis Complete";
+
+});
