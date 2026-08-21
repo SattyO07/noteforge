@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>NoteForge - Music to MIDI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🎼 NoteForge</div>
+
+        <nav>
+            <a href="#converter">Converter</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <p class="tag">AI MUSIC TOOL</p>
+
+            <h1>Turn Music Into<br><span>Notes.</span></h1>
+
+            <p class="description">
+                Upload your music and convert it into MIDI,
+                piano notes, and sheet music.
+            </p>
+
+            <a href="#converter" class="start-button">
+                Start Converting →
+            </a>
+        </section>
+
+
+        <section id="converter" class="converter">
+
+            <div class="converter-header">
+                <h2>🎵 Music Converter</h2>
+
+                <p>
+                    Upload an audio file to begin.
+                </p>
+            </div>
+
+
+            <label class="upload-box" for="audioFile">
+
+                <div class="upload-icon">🎧</div>
+
+                <h3>Drop your music here</h3>
+
+                <p>or click to choose a file</p>
+
+                <small>MP3, WAV, M4A supported</small>
+
+                <input
+                    type="file"
+                    id="audioFile"
+                    accept="audio/*"
+                >
+
+            </label>
+
+
+            <div id="fileInfo" class="file-info hidden">
+
+                <div>
+                    <strong id="fileName">
+                        No file selected
+                    </strong>
+
+                    <p id="fileSize"></p>
+                </div>
+
+                <button id="removeFile">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <button id="analyzeButton" class="analyze-button" disabled>
+                🤖 Analyze Music
+            </button>
+
+
+            <div id="result" class="result hidden">
+
+                <h2>🎹 Conversion Results</h2>
+
+                <div class="result-grid">
+
+                    <button class="result-card" id="midiButton">
+                        <span>🎵</span>
+                        <strong>MIDI</strong>
+                        <small>Download MIDI</small>
+                    </button>
+
+                    <button class="result-card">
+                        <span>🎹</span>
+                        <strong>Piano</strong>
+                        <small>View piano notes</small>
+                    </button>
+
+                    <button class="result-card">
+                        <span>🎼</span>
+                        <strong>Sheet Music</strong>
+                        <small>View notation</small>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="about" class="about">
+
+            <h2>What is NoteForge?</h2>
+
+            <p>
+                NoteForge is a music conversion project designed
+                to turn audio recordings into useful musical data.
+                The goal is to make MIDI, piano arrangements,
+                and sheet music easier to create.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>NoteForge • Music → Notes</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
